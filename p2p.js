@@ -4,7 +4,7 @@ const crypto = require('crypto'),
   Swarm = require('discovery-swarm'),
   defaults = require('dat-swarm-defaults'),
   getPort = require('get-port');
-
+  chain = require("./chain");
 //Set variables to hold an object with the peers and connection sequence
 
 const peers = {};
@@ -108,4 +108,40 @@ sendMessage = (id, type, data) => {
         }
     ));
 };
+// By using a MessageType property, we can define a switch mechanism so different messages types will be used for
+// different functions.
+let MessageType = {
+    REQUEST_LATEST_BLOCK: 'requestLatestBlock',
+    Latest_BLOCK: 'latestBlock'
+};
 
+//Once a connection data event message is received, you can create your switch
+//code to handle the different types of requests
+
+switch (message.type) {
+    case MessageType.REQUEST_BLOCK:
+        console.log('----------REQUEST BLOCK------------');
+        let requestedIndex = (JSON.parse(JSOn.stringify(message.data))).index;
+        let requestedBlock = chain.getBlock(requestedIndex);
+        if (requestedBlock)
+        writeMessageToPeerToId(peerId.toString('hex'),
+        MessageType.RECEIVE_NEXT_BLOCK, requestedBlock);
+        else
+          console.log('No block found @ index: ' + requestedIndex);
+        console.log('-------REQUEST_BLOCK-------------');
+        break;
+    case MessageType.RECEIVE_NEXT_BLOCK:
+        console.log('------Receive_Next_block----------');
+        chain.addBlock(JSON.parse(JSON.stringify(message.data)));
+        console.log(JSON.stringify(chain.blockchain));
+        let nextBlockIndex = chain.getLatestBlock().index+1;
+        console.log('--request next block @ index: ' + nextBlockIndex);
+        writeMessageToPeers(MessageType.REQUEST_BLOCK, {index:nextBlockIndex});
+        console.log('------Receive Next Block -----------');
+        break;
+}
+// set a timeout request that wil send a request to retrieve the latest block every 5sec
+
+setTimeout(function(){
+    writeMessageToPeers(MessageType.REQUEST_BLOCK, {index: chain.getLatestBlock().index+1});
+},5000);
