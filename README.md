@@ -27,7 +27,7 @@ This network is capable of doing following:
 - Register and unregister miners using PoS consensus mechanism.
 - Create new blocks and sent them between the peers.
 - Store blocks using name-value LevelDB database. 
-![](blob:https://web.whatsapp.com/d7635149-c5b0-400e-96d8-b03eac091957)
+![Block and BlockHeader UML diagram](blob:https://web.whatsapp.com/d7635149-c5b0-400e-96d8-b03eac091957)
 ## Communication:
 In this project, I have also created a wallet, that consists of private-public key pairs.
 Hydra communicate via API services and the CLI.
