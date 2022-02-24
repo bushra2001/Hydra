@@ -1,6 +1,20 @@
 # HYDRA:
 Hydra is a very basic personalized P2P (Peer to Peer) blockchain network.
 
+## How to Use:
+```
+git clone https://github.com/bushra2001/Hydra.git
+npm install crypto discovery-swarm dat-swarm-defaults get-port
+--save
+```
+To run the code from the clone library on GitHub, navigate to the code, follow
+these Terminal commands to install the libraries, and run a node.js instance
+attaching our p2p.js code:
+```
+cd [location]/Hydra
+npm install
+node p2p.js
+```
 ## Tools:
 It is implemented using;
 - Nodejs
