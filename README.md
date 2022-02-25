@@ -24,12 +24,13 @@ It is implemented using;
 This network is capable of doing following:
 
 - Send and receive messages and include blocks in these messages.
+
 ![peer1](https://raw.githubusercontent.com/bushra2001/Hydra/main/screenshots/peer1.jpeg)
 ![peer2](https://raw.githubusercontent.com/bushra2001/Hydra/main/screenshots/peer2.jpeg)
+
 - Register and unregister miners using PoS consensus mechanism.
 - Create new blocks and sent them between the peers.
 - Store blocks using name-value LevelDB database. 
-![Block and BlockHeader UML diagram](https://user-images.githubusercontent.com/61081924/155588613-2b0d5520-07dd-4292-b698-6db0e540cf3d.jpeg)
 
 ## Communication:
 In this project, I have also created a wallet, that consists of private-public key pairs.
