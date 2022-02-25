@@ -24,6 +24,8 @@ It is implemented using;
 This network is capable of doing following:
 
 - Send and receive messages and include blocks in these messages.
+![peer1](https://raw.githubusercontent.com/bushra2001/Hydra/main/screenshots/peer1.jpeg)
+![peer2](https://raw.githubusercontent.com/bushra2001/Hydra/main/screenshots/peer2.jpeg)
 - Register and unregister miners using PoS consensus mechanism.
 - Create new blocks and sent them between the peers.
 - Store blocks using name-value LevelDB database. 
