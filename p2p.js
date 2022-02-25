@@ -2,10 +2,10 @@
 //using const instead of let; to ensure there is no rebinding
 const crypto = require('crypto'),
   Swarm = require('discovery-swarm'),
-  defaults = require('dat-swarm-defaults'),
-  getPort = require('get-port');
-  chain = require("./chain");
+  defaults = require('dat-swarm-defaults')
+  getPort = require ('get-port');
 //Set variables to hold an object with the peers and connection sequence
+const chain = require('./chain.js');
 
 const peers = {};
 let connSeq = 0;
@@ -30,7 +30,15 @@ const swarm = Swarm(config);
 (async () => {
 //Listen on random port selected and once a connection made to a peer
 // using setKeepAlive to ensure the network connection stays with other peers
+    try {
     const port = await getPort();
+    // console.log(await getPort());
+    } catch (error) {
+        console.log('That didnot go well')
+        throw error
+    }
+    const port = await getPort();
+
     swarm.listen(port);
     console.log('Listening port: ' + port);
     swarm.join(channel);
@@ -72,7 +80,7 @@ const swarm = Swarm(config);
         peers[peerId].seq = seq;
         connSeq++
     })
-})();
+})().catch(e => { console.error(e) })
 //send msg after ten seconds to any available peers
 setTimeout(function(){
     writeMessageToPeers('hello', null);
@@ -131,7 +139,7 @@ switch (message.type) {
         console.log('-------REQUEST_BLOCK-------------');
         break;
     case MessageType.RECEIVE_NEXT_BLOCK:
-        console.log('------Receive_Next_block----------');
+        console.log('------Receive_Next_Block----------');
         chain.addBlock(JSON.parse(JSON.stringify(message.data)));
         console.log(JSON.stringify(chain.blockchain));
         let nextBlockIndex = chain.getLatestBlock().index+1;
