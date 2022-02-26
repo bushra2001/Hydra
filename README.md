@@ -52,7 +52,7 @@ cat wallet/private_key
 
 ## Communication:
 
-Hydra communicate via API services and the CLI.
+Hydra communicate via API services.
 
 ### For implementing API_Service :
 ```
