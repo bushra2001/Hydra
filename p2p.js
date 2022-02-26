@@ -18,6 +18,8 @@ let channel = 'Hydra';
 
 //set randomly generated peer ID for utilizing crypto library 
 const myPeerId = crypto.randomBytes(32);
+chain.createDb(myPeerId.toString('hex'));
+
 console.log('my PeerId: ' + myPeerId.toString('hex'));
 
 //Generate config object that holds peerID
@@ -31,12 +33,6 @@ const swarm = Swarm(config);
 async function f() {
     //Listen on random port selected and once a connection made to a peer
     // using setKeepAlive to ensure the network connection stays with other peers
-        // try {
-        // // console.log(await getPort());
-        // } catch (error) {
-        //     console.log('That didnot go well')
-        //     throw error
-        // }
 
         const port = await getPort();
         swarm.listen(port);
@@ -232,6 +228,7 @@ setTimeout(function(){
                     console.log('---------create next block ----------');
                     let newBlock = chain.generateNextBlock(null);
                     chain.addBlock(newBlock);
+                    chain.storeBlock(newBlock);
                     console.log(JSON.stringify(newBlock));
                     writeMessageToPeers(MessageType.RECEIVE_NEW_BLOCK,newBlock);
                     console.log(JSON.stringify(chain.blockchain));
