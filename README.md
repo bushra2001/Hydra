@@ -48,7 +48,7 @@ npm install elliptic --save
 node wallet.js
 cat wallet/private_key
 ```
-![Generating a wallet’s private-public key]()
+![Generating a wallet’s private-public key](file:///home/bushra/blockchain_apps/Hydra/screenshots/Generating%20a%20wallet%E2%80%99s%20private-public%20key.jpeg)
 
 ## Communication:
 In this project, I have also created a wallet, that consists of private-public key pairs.
