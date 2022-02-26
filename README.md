@@ -12,8 +12,8 @@ these Terminal commands to install the libraries, and run a node.js instance
 attaching our p2p.js code:
 ```
 cd [location]/Hydra
-npm install
-node p2p.js
+npm install 
+node p2p.js // two instances in terminal
 ```
 ## Tools:
 It is implemented using;
@@ -33,6 +33,14 @@ This network is capable of doing following:
 ![Register_Miner](https://github.com/bushra2001/Hydra/blob/main/screenshots/Register_miner.jpeg)
 
 - Store blocks using name-value LevelDB database. 
+```
+npm install level fs -save
+node p2p.js // create two instances
+cd [location]/db/[peer Id] //in another terminal
+tail –f 000003.log
+```
+
+![tail command](https://github.com/bushra2001/Hydra/blob/main/screenshots/tail%20command%20with%20the%20LevelDB%20database%20showing%20new.jpeg)
 
 ## Communication:
 In this project, I have also created a wallet, that consists of private-public key pairs.
