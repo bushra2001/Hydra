@@ -42,7 +42,7 @@ tail –f 000003.log
 
 ![tail command](https://github.com/bushra2001/Hydra/blob/main/screenshots/tail%20command%20with%20the%20LevelDB%20database%20showing%20new.jpeg)
 
-- Store public private key in Blockchain Wallet
+- Store public private key in Blockchain Wallet using using the elliptic-curve cryptography library.
 ```
 npm install elliptic --save
 node wallet.js
@@ -51,5 +51,15 @@ cat wallet/private_key
 ![Generating a wallet’s private-public key](https://github.com/bushra2001/Hydra/blob/main/screenshots/Generating%20a%20wallet%E2%80%99s%20private-public%20key.jpeg)
 
 ## Communication:
-In this project, I have also created a wallet, that consists of private-public key pairs.
+
 Hydra communicate via API services and the CLI.
+
+### For implementing API_Service :
+```
+npm install express body-parser --save
+node p2p.js
+http://localhost:80[port]/getWallet
+http://localhost:80[port]/blocks
+http://localhost:80[port]/getBlock?index=0
+http://localhost:80[port]/ getDBBlock?index=0
+```
