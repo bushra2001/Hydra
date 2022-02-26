@@ -4,7 +4,7 @@ Hydra is a very basic personalized P2P (Peer to Peer) blockchain network.
 ## How to Use:
 ```
 git clone https://github.com/bushra2001/Hydra.git
-npm install crypto discovery-swarm dat-swarm-defaults get-port
+npm install crypto discovery-swarm dat-swarm-defaults get-port cron moment crypto-js
 --save
 ```
 To run the code from the clone library on GitHub, navigate to the code, follow
@@ -25,11 +25,13 @@ This network is capable of doing following:
 
 - Send and receive messages and include blocks in these messages.
 
-![peer1](https://raw.githubusercontent.com/bushra2001/Hydra/main/screenshots/peer1.jpeg)
 ![peer2](https://raw.githubusercontent.com/bushra2001/Hydra/main/screenshots/peer2.jpeg)
 
 - Register and unregister miners using PoS consensus mechanism.
 - Create new blocks and sent them between the peers.
+
+![Register_Miner](https://github.com/bushra2001/Hydra/blob/main/screenshots/Register_miner.jpeg)
+
 - Store blocks using name-value LevelDB database. 
 
 ## Communication:
