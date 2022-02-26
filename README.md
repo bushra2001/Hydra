@@ -4,7 +4,7 @@ Hydra is a very basic personalized P2P (Peer to Peer) blockchain network.
 ## How to Use:
 ```
 git clone https://github.com/bushra2001/Hydra.git
-npm install crypto discovery-swarm dat-swarm-defaults get-port
+npm install crypto discovery-swarm dat-swarm-defaults get-port cron moment crypto-js
 --save
 ```
 To run the code from the clone library on GitHub, navigate to the code, follow
