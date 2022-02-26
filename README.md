@@ -63,3 +63,4 @@ http://localhost:80[port]/blocks
 http://localhost:80[port]/getBlock?index=0
 http://localhost:80[port]/ getDBBlock?index=0
 ```
+![Retrieving all the blocks in blockchain](https://github.com/bushra2001/Hydra/blob/main/screenshots/API_call_for%20blocks.jpeg)
