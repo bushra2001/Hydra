@@ -28,10 +28,10 @@ This network is capable of doing following:
 ![peer2](https://raw.githubusercontent.com/bushra2001/Hydra/main/screenshots/peer2.jpeg)
 
 - Register and unregister miners using PoS consensus mechanism.
+- Create new blocks and sent them between the peers.
 
 ![Register_Miner](https://github.com/bushra2001/Hydra/blob/main/screenshots/Register_miner.jpeg)
 
-- Create new blocks and sent them between the peers.
 - Store blocks using name-value LevelDB database. 
 
 ## Communication:
